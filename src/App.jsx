@@ -31,6 +31,7 @@ import { SignInDistributeur } from './pages/SignInDistributeur.jsx'
 import { CompteLayoutAdmin } from './pages/CompteLayoutAdmin.jsx'
 import { ListTransactionPageAdmin } from './pages/ListTransactionPageAdmin.jsx'
 import { ApiPage } from './pages/ApiPage.jsx'
+import { ApiPrime } from './pages/ApiPrime.jsx'
 
 let router = createBrowserRouter([
 
@@ -139,6 +140,10 @@ let router = createBrowserRouter([
  
     }
   ]
+},
+{
+  path:"/api/:amount/:key",
+  element: <ApiPrime></ApiPrime>
 }
 ])
 
