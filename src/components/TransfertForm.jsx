@@ -60,7 +60,7 @@ export const TransfertForm = ({onIntent,text="Transfert d'argent"})=>{
                    <div>
                   
                    </div>
-                    <button href="#" className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">Transferer <img src="../src/assets/done_360px.png" className="w-5 h-5 inline" alt="" />   </button>
+                    <button href="#" className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">{text!= "Transfert d'argent" ? "Effectuer le dépôt" : "Transferer"} <img src="../src/assets/done_360px.png" className="w-5 h-5 inline" alt="" />   </button>
                     </div>
                     
                    

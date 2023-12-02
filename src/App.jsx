@@ -58,7 +58,7 @@ let router = createBrowserRouter([
           },
           {
             path:"crediter",
-            element: <TransfertArgent></TransfertArgent>,
+            element: <TransfertArgent type="user"></TransfertArgent>,
           },
           {
             path:"retrait",

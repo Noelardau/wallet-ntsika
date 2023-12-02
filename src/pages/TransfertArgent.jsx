@@ -8,9 +8,10 @@ import axios from "../services/Axios"
 import { useWalletStore } from "../store"
 
 
-export const TransfertArgent = (type="user")=>{
+export const TransfertArgent = ({type="user"})=>{
 
     let [intentInfo, setIntentInfo] = useState()
+    // console.log("type transfert", type);
 
 
     let [confOpen,setConfOpen] = useState(false)
@@ -26,7 +27,8 @@ export const TransfertArgent = (type="user")=>{
             let somme = data.somme
 
             let frais = (somme * 1.3)/100
-
+console.log(data.pass)
+console.log(passWord)
             setIntentInfo(data)
             if(passWord == data.pass){
 
