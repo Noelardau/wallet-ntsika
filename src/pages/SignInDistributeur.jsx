@@ -238,7 +238,7 @@ export const SignInDistributeur = ()=>{
 <div className={` mt-24 mx-auto   w-96 h-36 bg-white rounded-3xl  border p-5 shadow-2xl `} >
   <div className="text-2xl font-bold text-[#4371BA]">Compte distributeur </div>
   <div className="bg-[#4371BA] w-32 h-2 rounded-full mt-2"></div>  
- <p>Création d'un compte distributeur {step}</p>
+ <p>Création d'un compte distributeur </p>
 </div>
 
 

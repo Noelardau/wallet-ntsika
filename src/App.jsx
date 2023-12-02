@@ -29,6 +29,7 @@ import { TransactionLayoutAdmin } from './pages/TransactionLayoutAdmin.jsx'
 import { SignInUserTwo } from './pages/SignInUserTwo.jsx'
 import { SignInDistributeur } from './pages/SignInDistributeur.jsx'
 import { CompteLayoutAdmin } from './pages/CompteLayoutAdmin.jsx'
+import { ListTransactionPageAdmin } from './pages/ListTransactionPageAdmin.jsx'
 import { ApiPage } from './pages/ApiPage.jsx'
 
 let router = createBrowserRouter([
@@ -119,7 +120,7 @@ let router = createBrowserRouter([
       children:[
         {
           path:"",
-          element: <ListTransactionPage typeUser="admin"></ListTransactionPage>,
+          element: <ListTransactionPageAdmin></ListTransactionPageAdmin>,
         },
         {
           path:"crediter",

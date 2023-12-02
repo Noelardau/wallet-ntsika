@@ -7,14 +7,15 @@ import { useParams } from "react-router-dom"
 
 
 
-export const ListTransactionPage = (typeUser="user")=>{
+export const ListTransactionPageAdmin = (typeUser="user")=>{
         let {user_id} = useParams()
     let [transactions, setTransaction] = useState([])
-    let idUser =typeUser == "user" || "cashPoint" ? user_id!= undefined ? user_id : useWalletStore(state=>state.user).user_id : user_id!= undefined ? user_id : useWalletStore(state=>state.admin).user_id
+    // let idUser =typeUser == "user" || "cashPoint" ? user_id!= undefined ? user_id : useWalletStore(state=>state.user).user_id : user_id!= undefined ? user_id : useWalletStore(state=>state.admin).user_id
     
     
-    // let idUser =typeUser == "user" || typeUser =="cashPoint" ? useWalletStore(state=>state.user).user_id : (user_id!= undefined ? user_id : useWalletStore(state=>state.admin).user_id)
+    let idUser =typeUser == "user" || typeUser =="cashPoint" ? useWalletStore(state=>state.user).user_id : (user_id!= undefined ? user_id : useWalletStore(state=>state.admin).user_id)
     // console.log("id admin",idUser)
+    // alert(idUser)
 
     useEffect(()=>{
         axios.get("/user/transaction?user_id="+idUser).then(data=>{
