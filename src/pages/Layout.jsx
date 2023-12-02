@@ -29,12 +29,20 @@ console.log(logIcon)
       <Redirection></Redirection>
     <div className="flex justify-around w-full h-20 fixed top-0 p-5 bg-white z-50">
 
-    <div className="text-3xl text-[#4371BA] shadow-3xl font-bold">Wallet'ntsika</div>
+    <div className="text-3xl text-[#4371BA] shadow-3xl font-bold max-md:text-lg">Wallet'ntsika
+      {user.cash_point ? "(Agent)" : ""} 
+      {user.marchand ? "(Marchand)" : ''}
+    </div>
 
     <nav className='text-sm text-[#4371BA] w-80 flex justify-around items-center '>
       <NavLink to="/" className="layoutTop w-28  rounded-lg p-2 h-10 text-center">Acceuil</NavLink>
       <NavLink to="/about" className="layoutTop w-28  rounded-lg p-2 h-10 text-center">
         A propos
+        {/* <img src="./src/assets/info_500px.png" className="w-4 h-4 inline ml-1" alt="" /> */}
+        
+        </NavLink> 
+        <NavLink to="/admin" className="layoutTop w-auto  rounded-lg p-2 h-10 text-center">
+        Se connecter en tant qu'admin?
         {/* <img src="./src/assets/info_500px.png" className="w-4 h-4 inline ml-1" alt="" /> */}
         
         </NavLink>

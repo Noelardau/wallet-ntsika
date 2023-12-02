@@ -28,7 +28,7 @@ export const LayoutAdmin = ()=>{
     <div className="flex justify-around w-full h-20 fixed top-0 p-5 z-50 bg-white">
       
 
-    <div className="text-3xl text-[#4371BA] shadow-3xl font-bold">Wallet'ntsika (Admin) </div>
+    <div className="text-3xl text-[#4371BA] shadow-3xl font-bold max-md:text-lg">Wallet'ntsika (Admin) </div>
     <RedirectionAdmin></RedirectionAdmin>
 
     <nav className='text-sm text-[#4371BA] w-80 flex justify-around items-center '>

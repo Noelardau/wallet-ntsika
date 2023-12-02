@@ -10,7 +10,7 @@ export const Transaction = ({type="Retrait",typeList="user", amount="2000", date
 
 console.log(typeList)
 
-return <div className="relative z-0 w-full flex h-28 bg-white drop-shadow-xl my-4 rounded-lg">
+return <div className="relative z-0 w-full h-auto flex h-28 bg-white drop-shadow-xl my-4 rounded-lg">
            <div className="w-1/6  flex justify-center items-center">
             {
                 typeList == "cashPoint" ?

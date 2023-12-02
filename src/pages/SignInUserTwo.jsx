@@ -79,9 +79,7 @@ console.log(newUser)
                    cash_point
                     
                   }).then(data=>{
-                    setMessage(mess.response.data.message)
-                    setSuccess(true)
-                    setIsOpen(true)
+                    
         setStep(s=>s = s + 1)
 
                   }).catch(e=>{

@@ -10,7 +10,7 @@ export const UserViewList = ({user_id, contact,email,isActive,onToggleSuspend, o
             onToggleSuspend(id,isActive)
     }
 
-    return <div className="w-full mb-2 h-20 flex justify-between content-center border-b-2 border-blue-500">
+    return <div className="w-full mb-2 h-auto flex max-xl:flex-col justify-between content-center border-b-2 border-blue-500">
 
         <div className="w-auto p-2">
               <div>
@@ -19,7 +19,7 @@ export const UserViewList = ({user_id, contact,email,isActive,onToggleSuspend, o
               {contact}
         </div>
 
-        <div className="w-auto p-2 pr-2 flex justify-between content-center ">
+        <div className="w-auto p-2 pr-2 flex max-md:flex-col  justify-between content-center ">
 <div>
     <button   className="bg-blue-600 text-center text-white p-2 rounded-xl w-36 hover:bg-red-700 " >
         <NavLink to={"/admin/transaction/"+user_id}>voir transaction</NavLink>

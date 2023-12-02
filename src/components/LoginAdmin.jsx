@@ -2,6 +2,8 @@ import {useForm} from "react-hook-form"
 import { NavLink, redirect } from "react-router-dom"
 
 
+import loginIcon from "/src/assets/lock_208px.png"
+import eyeIcon from "/src/assets/eye_see_password.png"
 
 
 
@@ -38,7 +40,7 @@ export function LoginAdmin({className,onSubmit}){
            <div className={`${className} mt-16 flex items-center flex-col  align-middle  w-96 min-h-44 bg-white rounded-3xl  border p-5 pt-9 shadow-2xl relative`}>
 
             <div className="w-20 h-20 bg-white rounded-full absolute -top-12 p-4">
-                <img src="./src/assets/lock_208px.png" className="w-10 h-10"  />
+                <img src={loginIcon} className="w-10 h-10"  />
             </div>
               <form onSubmit={handleSubmit(sub)}>
               <div className="mb-5">
@@ -46,7 +48,7 @@ export function LoginAdmin({className,onSubmit}){
                {errors.email ? <span className="text-red-600">veillez renseigner votre adresse mail</span> : ""}
               </div>
                 <div className="relative">
-                <input type="password" className="w-full bg-slate-200 p-3 border-b-2 border-b-blue-700 outline-none" placeholder="Mot de passe" name="pass" id="pass" {...register("password",{required:true})}  /> <a href="#" className="absolute right-2 top-3 " onClick={seePass}><img src="./src/assets/eye_see_password.png" alt="" className="w-6 h-6" /></a>
+                <input type="password" className="w-full bg-slate-200 p-3 border-b-2 border-b-blue-700 outline-none" placeholder="Mot de passe" name="pass" id="pass" {...register("password",{required:true})}  /> <a href="#" className="absolute right-2 top-3 " onClick={seePass}><img src={eyeIcon} alt="" className="w-6 h-6" /></a>
                 {errors.pass ? <span className="text-red-600">Veuillez entrer votre mot de passe</span> : ""}
 
                 </div>

@@ -34,7 +34,7 @@ export const RetraitForm = ({onIntent})=>{
     
     let {register,handleSubmit,formState:{errors}} = useForm()
 
-    return <form onSubmit={handleSubmit(effectuerRetrait)} className="w-1/2 mx-auto flex flex-col justify-center bg-white p-5 rounded-3xl shadow-sm relative ">
+    return <form onSubmit={handleSubmit(effectuerRetrait)} className="w-1/2 max-sm:w-56 max-lg:w-80 mx-auto flex flex-col justify-center bg-white p-5 rounded-3xl shadow-sm relative ">
     
                   
                    
