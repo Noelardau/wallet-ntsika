@@ -11,6 +11,7 @@ import suivantIcon from "/src/assets/chevron_right_96px.png"
 import emailIcon from "/src/assets/email_sign_500px.png"
 import lockIcon from "/src/assets/lock_208px.png"
 import aproval from "/src/assets/approval_96px.png"
+import prevIcon from "/src/assets/chevron_left_96px.png"
 
 
 
@@ -19,7 +20,7 @@ export const SignInDistributeur = ()=>{
 
     let [step, setStep] = useState(1)
     let [newUser, setNewUser] = useState({
-        nom:"", prenom:"", contact:"", email:"", password:"", password1:"", pseudo:"", solde:0, wn_sub:"", marchand:false, cash_point: true, CODE:""
+        nom:"", prenom:"", contact:"", email:"", password:"", password1:"", pseudo:"", solde:0, wn_sub:"kjljl", marchand:false, cash_point: true, CODE:"jklkl"
     })
 
     let [message, setMessage] = useState("")
@@ -36,8 +37,7 @@ export const SignInDistributeur = ()=>{
   
     let changeStepUp = ()=>{
 
-
-            let {
+            var {
                 nom, prenom, contact, email, password, password1, pseudo, solde,marchand, wn_sub, CODE,cash_point
             } =  newUser
         if(step == 1){
@@ -72,34 +72,35 @@ export const SignInDistributeur = ()=>{
            
             if(wn_sub != ""){
 
-                axios.post("/signup/confirm",{
-                    email, 
-                    password,
-                    nom,
-                   contact,
-                    wn_sub,
-                    CODE,
-                    marchand,
-                   cash_point
-                    
-                  }).then(data=>{
-                   
-                   setMessage("compte crée avec succès")
-                   setSuccess(true)
-                   setIsOpen(true)
-                  
-        setStep(s=>s = s + 1)
 
-                  }).catch(e=>{
-                    console.log(e)
-                    let mess = {...e}
+        //         axios.post("/signup/confirm",{
+        //             email, 
+        //             password,
+        //             nom,
+        //            contact,
+        //             wn_sub,
+        //             CODE,
+        //             marchand,
+        //            cash_point
+                    
+        //           }).then(data=>{
                    
-                    setMessage(mess.response.data.message != undefined ? mess.response.data.message+"!!" : "Numéro télephone déjà utilisé!!")
-                    setSuccess(false)
-                    setIsOpen(true)
+        //            setMessage("compte crée avec succès")
+        //            setSuccess(true)
+        //            setIsOpen(true)
+                  
+        // setStep(s=>s = s + 1)
+
+        //           }).catch(e=>{
+        //             console.log(e)
+        //             let mess = {...e}
+                   
+        //             setMessage(mess.response.data.message != undefined ? mess.response.data.message+"!!" : "Numéro télephone déjà utilisé!!")
+        //             setSuccess(false)
+        //             setIsOpen(true)
                 
                 
-                })
+        //         })
                
 
 
@@ -140,28 +141,61 @@ export const SignInDistributeur = ()=>{
                     setIsOpen(true)
                     return 0
                 }else{
-                    // axios 
-                    axios.post("/signup/sub",{email:newUser.email}).then(data=>{
-                        console.log(data.data.data)
-                      let  code = data.data.data
-                      setNewUser({...newUser,CODE:code})
-        setStep(s=>s = s + 1)
-
+                    // setStep(s=>s = s + 1)
+                    axios.post("/signup/confirmAgent",{
+                        email, 
+                        password,
+                        nom,
+                       contact,
+                        wn_sub,
+                        CODE,
+                        marchand,
+                       cash_point
+                        
+                      }).then(data=>{
+                       
+                       setMessage("compte crée avec succès")
+                       setSuccess(true)
+                       setIsOpen(true)
                       
+            setStep(s=>s = s + 1)
+    
                       }).catch(e=>{
                         console.log(e)
                         let mess = {...e}
                        
-                        setMessage(mess.response.data.message != undefined ? mess.response.data.message+"!!" : "Error server!!")
+                        setMessage(mess.response.data.message != undefined ? mess.response.data.message+"!!" : "Numéro télephone déjà utilisé!!")
                         setSuccess(false)
                         setIsOpen(true)
-                      })
+                    
+                    
+                    })
+                   
+    
+                    // axios 
+        //             axios.post("/signup/sub",{email:newUser.email}).then(data=>{
+        //                 console.log(data.data.data)
+        //               let  code = data.data.data
+        //               setNewUser({...newUser,CODE:code})
+        //               console.log(newUser)
+
+                      
+        //               }).catch(e=>{
+        //                 console.log(e)
+        //                 let mess = {...e}
+                       
+        //                 setMessage(mess.response.data.message != undefined ? mess.response.data.message+"!!" : "Error server!!")
+        //                 setSuccess(false)
+        //                 setIsOpen(true)
+        //               })
                 }
             }
 
         }
 
 
+        
+        
 
 
 
@@ -190,25 +224,7 @@ export const SignInDistributeur = ()=>{
 
     }
 
-    let confirmCode = (e)=>{
-        e.preventDefault()
-            console.log(newUser.CODE)
-            console.log(newUser.wn_sub)
-            console.log(newUser)
-            axios.post("/signup/confirm",newUser).then(data=>{
-                console.log(data)
-                changeStepUp()
-            //     setTimeout(()=>{
-            //       setStep(step=>step = step + 1) 
-                
-            //   },1000)  
-              }).catch(e=>{
-                console.log(e)
-                let mess = {...e}
-                alert(mess.response.data.message)
-              })
-  
-    }
+
 
   
 
@@ -222,8 +238,7 @@ export const SignInDistributeur = ()=>{
 <div className={` mt-24 mx-auto   w-96 h-36 bg-white rounded-3xl  border p-5 shadow-2xl `} >
   <div className="text-2xl font-bold text-[#4371BA]">Compte distributeur </div>
   <div className="bg-[#4371BA] w-32 h-2 rounded-full mt-2"></div>  
- 
-{step == 4 ? <p>Un code de verification a été envoyé à l'émail de la personne</p> : <p>Création d'un compte distributeur</p>}
+ <p>Création d'un compte distributeur {step}</p>
 </div>
 
 
@@ -231,14 +246,14 @@ export const SignInDistributeur = ()=>{
   <form className="mx-auto mt-16 flex items-center flex-col  align-middle  w-96 min-h-44 bg-white rounded-3xl  border p-5 pt-9 shadow-2xl relative" onSubmit={(e)=>e.preventDefault()}>
 
 {
-step == 5 ?
+step == 4 ?
 <>
           
           <div className="w-20 h-20 bg-white rounded-full absolute -top-12 p-5">
            <img src={aproval} className="w-10 h-10"  />
        </div>
-       <h1 className="text-2xl font-bold mb-5">Félicitations !!</h1>
-       <p>Les informations concernant le compte distributeur ont été bien enregistré</p>
+       <h1 className="text-2xl  font-bold mb-5 ">Félicitations !!</h1>
+       <p className="text-center">Les informations concernant le compte distributeur ont été bien enregistré</p>
             
        <NavLink className="bg-[#4371BA] text-white p-2 rounded-xl w-auto mt-5 hover:bg-blue-600" to="/">Acceder à votre compte...</NavLink>
           
@@ -270,7 +285,8 @@ step == 1 ?
  
   <div className="flex w-full mt-4 justify-between">
  <div></div>
-  <button  className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600" onClick={(e)=>{e.preventDefault(); changeStepUp()}}>Suivant <img src={suivantIcon} className="w-5 h-5 inline" alt="" />   </button>
+ 
+  <button  className="bg-[#4371BA]  text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer" onClick={(e)=>{e.preventDefault(); changeStepUp()}}>Suivant <img src={suivantIcon} className="w-5 h-5 inline" alt="" />   </button>
   </div>
   
  
@@ -305,9 +321,14 @@ step==2 ?
 
                
                 
-                <div className="flex mt-4 justify-between w-full" onClick={changeStepUp} >
-               <div></div>
-                <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer">Suivant <img src={suivantIcon} className="w-5 h-5 inline" alt=""  />   </div>
+                <div className="flex mt-4 justify-between w-full" >
+               
+                
+ <button  className="bg-[#4371BA]  text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer" onClick={(e)=>{e.preventDefault(); changeStepDown()}}>
+ <img src={prevIcon} className="w-5 h-5 inline" alt="" />  Précedent </button>
+    
+    
+                <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer" onClick={changeStepUp} >Suivant <img src={suivantIcon} className="w-5 h-5 inline" alt=""  />   </div>
                 </div>
                 
 
@@ -347,9 +368,13 @@ step == 3 ?
 
  
   
-  <div className="flex mt-4 justify-between w-full" onClick={changeStepUp}>
- <div></div>
-  <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">Enregistrer <img src={suivantIcon} className="w-5 h-5 inline" alt=""  />   </div>
+  <div className="flex mt-4 justify-between w-full" >
+ 
+                  
+ <button  className="bg-[#4371BA]  text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer" onClick={(e)=>{e.preventDefault(); changeStepDown()}}>
+    <img src={prevIcon} className="w-5 h-5 inline" alt="" /> Précedent </button>
+ 
+  <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer" onClick={changeStepUp}>Enregistrer <img src={suivantIcon} className="w-5 h-5 inline" alt=""  />   </div>
   </div>
   
  
@@ -359,7 +384,7 @@ step == 3 ?
 
 
 }
-
+{/* 
 {
 step == 4 ?<>
           
@@ -373,13 +398,13 @@ step == 4 ?<>
                          
       <div className="flex mt-4 justify-between" onClick={changeStepUp}>
      <div></div>
-      <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">Confirmer </div>
+      <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer">Confirmer </div>
       </div>
       
 </> : ""
 
 
-}
+} */}
 
 {/* {
 step == 5 ?

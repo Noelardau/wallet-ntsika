@@ -11,7 +11,7 @@ export const ListTransactionPage = (typeUser="user")=>{
         let {user_id} = useParams()
     let [transactions, setTransaction] = useState([])
     let idUser =typeUser == "user" || "cashPoint" ? user_id!= undefined ? user_id : useWalletStore(state=>state.user).user_id : user_id!= undefined ? user_id : useWalletStore(state=>state.admin).user_id
-    // console.log(id)
+    console.log("id admin",idUser)
 
     useEffect(()=>{
         axios.get("/user/transaction?user_id="+idUser).then(data=>{
@@ -26,7 +26,7 @@ export const ListTransactionPage = (typeUser="user")=>{
      <div className="text-[#4371BA] font-bold text-3xl mb-10">Liste des transactions</div>
  
     
-    <ListTransaction type={user_id == undefined ? "user" : "admin"} transactions={transactions}></ListTransaction>
+     <ListTransaction type={user_id == undefined ? "user" : "admin"} transactions={transactions}></ListTransaction>
     
     
     </>

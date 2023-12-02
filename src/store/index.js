@@ -17,6 +17,9 @@ let wallet_store = (set)=>({
     setSolde:(newSolde)=>{
         set(state=>({user:{...state.user,soldeActuel:newSolde}}))
     },
+    setSoldeAdmin:(newSolde)=>{
+        set(state=>({admin:{...state.admin,soldeActuel:newSolde}}))
+    },
     admin:{},
     setAdmin:(userCo)=>{
     

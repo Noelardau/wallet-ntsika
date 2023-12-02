@@ -6,8 +6,9 @@ import { useWalletStore } from "../store";
 import { connexion } from "../services/Connexion";
 import logIcon from "/src/assets/logout_208px.png"  
 import compteIcon from "/src/assets/male_user_144px.png"
+import logoG from "/src/assets/logoG.jpg"
 
-
+console.log("from home")
 
 export const Layout = ()=>{
 
@@ -16,6 +17,8 @@ console.log(logIcon)
     let [isOpen, setIsOpen] = useState(false)
     let setUser = useWalletStore(s=>s.setUser)
     let user = useWalletStore(state=>state.user)
+
+    
 
     let deconnect = ()=>{
       setUser({})
@@ -29,9 +32,12 @@ console.log(logIcon)
       <Redirection></Redirection>
     <div className="flex justify-around w-full h-20 fixed top-0 p-5 bg-white z-50">
 
-    <div className="text-3xl text-[#4371BA] shadow-3xl font-bold max-md:text-lg">Wallet'ntsika
-      {user.cash_point ? "(Agent)" : ""} 
+    <div className="text-lg flex items-center  text-[#4371BA] shadow-3xl font-bold max-md:text-lg">
+      <img src={logoG} className="h-16 w-20" alt="" />
+   <div>
+   {user.cash_point ? "(Agent)" : ""} 
       {user.marchand ? "(Marchand)" : ''}
+   </div>
     </div>
 
     <nav className='text-sm text-[#4371BA] w-80 flex justify-around items-center '>

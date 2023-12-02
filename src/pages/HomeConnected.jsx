@@ -53,7 +53,7 @@ export const HomeConnected = ()=>{
                 </div>
                 
                 <div className="flex justify-between h-1/2">
-                    <NavLink to="/transaction" className="w-1/2 max-lg:w-auto sm:full max-sm:w-auto bg-white rounded-3xl mr-5 flex flex-col items-center justify-around shadow-2x p-2l">
+                    <NavLink to="/transaction" className="w-1/2 max-lg:w-auto sm:full max-sm:w-auto bg-white rounded-3xl mr-5 flex flex-col items-center justify-around shadow-2xl p-2">
                         <div className="logo text-3xl ">
                         <img src={transactionLogo} className="w-16 h-16"  alt="" />
   
@@ -61,7 +61,7 @@ export const HomeConnected = ()=>{
                         <div className="text-xl font-bold max-lg:text-lg">Transaction</div>
 
                     </NavLink>
-                    <NavLink to="compte" className="w-1/2 max-lg:w-56 bg-white rounded-3xl mr-5 flex flex-col items-center justify-around shadow-2xl p-2">
+                    <NavLink to="compte" className="w-1/2 max-lg:w-56 bg-white rounded-3xl  flex flex-col items-center justify-around shadow-2xl p-2">
                         <div className="logo text-3xl p-5">
                         {/* <img src="../src/assets/card_wallet_96px.png"  alt="" /> */}
                         <img src={maleUser} className="h-16 w-16"  alt="" />

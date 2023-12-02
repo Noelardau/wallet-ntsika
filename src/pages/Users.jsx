@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react"
 import axios from "../services/Axios"
 import { UserViewList} from "../components/UserViewList"
 import { ConfirmationModal } from "../components/ConfirmationModal"
+import searchIcon from "/src/assets/search.png"
 
 
 export const Users = ()=>{
@@ -26,8 +27,8 @@ export const Users = ()=>{
 
     
     useEffect(()=>{
-        axios.get(`/user/all?nb=5`).then(data=>{
-            setUserList(data.data.data.filter(e=>!e.isAdmin))
+        axios.get(`/user/all`).then(data=>{
+            setUserList(data.data.data.slice(-7).reverse().filter(e=>!e.isAdmin))
             console.log("user list",data.data.data)
         
         }).catch(e=>console.log(e))
@@ -36,7 +37,7 @@ export const Users = ()=>{
     let search = (e)=>{
         e.preventDefault()
         axios.get(`/user/find?q=${keySearch}`).then(data=>{
-            setUserList(data.data.data)
+            setUserList(data.data.data.filter(e=>!e.isAdmin))
             setRet(true)
         }).catch(e=>{
             let erreur = {...e}
@@ -49,8 +50,8 @@ export const Users = ()=>{
 
     let reload = ()=>{
         setKeySearch("")
-        axios.get(`/user/all?nb=5`).then(data=>{
-            setUserList(data.data.data.filter(e=>!e.isAdmin))
+        axios.get(`/user/all`).then(data=>{
+            setUserList(data.data.data.slice(-7).reverse().filter(e=>!e.isAdmin))
             console.log("user list",data.data.data)
         
         }).catch(e=>console.log(e))
@@ -126,10 +127,12 @@ export const Users = ()=>{
 
 <ConfirmationModal onConfirm={confirmDelete} onCancel={cancelDelete}  isOpen={isOpenDelete} message={"Voulez-vous supprimer ce compte?"} ></ConfirmationModal>
         <form onSubmit={search} className="mt-5">
-            <input className=" bg-slate-200 p-3 border-b-2 border-b-blue-700 outline-none" type="text" placeholder="email, nom...." value={keySearch} onChange={(e)=>setKeySearch(e.target.value)} />
-            <button className="bg-blue-600 text-white p-2 rounded-md ml-3">search</button>
+            <input className=" bg-slate-200 p-3 border-b-2 border-b-blue-700 outline-none" type="text" placeholder="email, nom, contact...." value={keySearch} onChange={(e)=>setKeySearch(e.target.value)} />
+            <button className="bg-blue-600 text-white p-2 rounded-md ml-3">
+                <img src={searchIcon} className="h-5 w-5" alt="" />
+            </button>
         </form>
-        {ret ? <div className="hover:cursor-pointer" onClick={reload}>Afficher toute la liste</div> : ""}
+        {ret ? <div className="hover:cursor-pointer" onClick={reload}>Afficher la liste</div> : ""}
         <div className="mt-5">
 {/* <UserViewList email={"nul@gmail.com"}></UserViewList> */}
             {

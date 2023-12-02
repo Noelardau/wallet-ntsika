@@ -9,6 +9,7 @@ import { useWalletStore } from "../store"
 
 export const CompteLayout = ()=>{
     let [updating, setUpdating] = useState(false)
+    let [APIkey, setAPIkey] = useState(null)
     let user = useWalletStore(store=>store.user)
     let setUser = useWalletStore(store=>store.setUser)
     let [userInfo, setUserInfo] = useState({
@@ -23,11 +24,14 @@ export const CompteLayout = ()=>{
     let saveUpdate = ()=>{
         if(userInfo.contact !="" && userInfo.nom != "" && userInfo.email != "" && userInfo.password != ""){
             axios.post(`/user/update?user_id=${user.user_id}`,userInfo).then(data=>{
-                let {email, nom, user_id,contact, password} = data.data.data
+                let {email, nom, user_id,contact, password, wn_API_key} = data.data.data
                 console.log(data.data.data)
+                console.log("log api",wn_API_key)
+
                 setSubmitting(true)            
                 setTimeout(()=>{
                     setUser({email, nom, user_id, contact, password})
+                    setAPIkey(wn_API_key)
                     setSubmitting(false)
                     setUpdating(false)
                 },500)
@@ -44,7 +48,11 @@ export const CompteLayout = ()=>{
 // console.log(user)
     useEffect(()=>{
         axios.get("/user/get?user_id="+user.user_id).then(data=>{
-            console.log(data)
+            
+            console.log(user.marchand ? "marchand" : "tsy marchand")
+            if(user.marchand){
+                setAPIkey(data.data.data.wn_API_key)
+            }
         })
     },[])
 
@@ -54,7 +62,7 @@ export const CompteLayout = ()=>{
         submitting ?
         <Loader></Loader> : ""
     }
-            <div className="flex items-center justify-between flex-col mx-auto h-auto w-1/2 bg-white rounded-2xl shadow-sm"> 
+            <div className=" xl:w-auto  flex items-center justify-between flex-col mx-auto h-auto w-1/2 bg-white rounded-2xl shadow-sm"> 
             
                 <div className="w-20 h-20 bg-white rounded-full p-4">
                     <img src={loginIcon}   />
@@ -64,9 +72,21 @@ export const CompteLayout = ()=>{
         {
             !updating ? 
             <>
-             <div><span className="text-blue-500">Nom</span> : {user.nom}</div>
+            <div>
+
+             <div>
+                <span className="text-blue-500">Nom</span> : {user.nom}</div>
                     <div><span className="text-blue-500">Email</span> : {user.email}</div>
                     <div><span className="text-blue-500">Contact</span> : {user.contact}</div>
+                   {
+                    APIkey!= null ?
+                    <div>
+                    <span className="text-blue-500">wn_API_key</span>
+                    </div> : ""
+                   } 
+            </div>
+          
+                    {/* <div className="text-justify w-80"><span className="text-blue-500">wn_API_key</span> : <p className="text-justify w-52 whitespace-pre-wrap"> fdf</p></div> */}
                     {/* <div><span className="text-blue-500">Password</span> : {user.password}</div> */}
 </>
             : 
@@ -107,6 +127,15 @@ export const CompteLayout = ()=>{
         }
                    
                 </div>
+                {
+                    !updating ?
+                    
+                <div className="mb-2 h-2 w-full text-center">
+                {APIkey}
+                </div>: ""
+               
+               }
+        
                 {/* <UpdateForm></UpdateForm> */}
 {/*                 
                 <button className="bg-[#4371BA]  text-white p-2 rounded-xl w-32 hover:bg-blue-600" type="submit">Modifier</button> */}

@@ -54,7 +54,7 @@ export const CompteLayoutAdmin = ()=>{
         submitting ?
         <Loader></Loader> : ""
     }
-            <div className="flex items-center justify-between flex-col mx-auto h-96 w-1/2 bg-white rounded-2xl shadow-sm max-lg:w-56"> 
+            <div className="flex items-center justify-between flex-col mx-auto h-auto w-1/2 bg-white rounded-2xl shadow-sm max-lg:w-56"> 
             
                 <div className="w-20 h-20 bg-white rounded-full p-4">
                     <img src={loginIcon}   />

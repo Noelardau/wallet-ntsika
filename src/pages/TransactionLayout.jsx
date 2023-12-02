@@ -42,12 +42,12 @@ export const TransactionLayout = ()=>{
         </NavLink>: ""
     } 
     
-    {
+    {/* {
         isMarchand ? <NavLink className={`text-sm block p-5 layoutRight text-center `} to="api">
                 <img src={apiLogo} className="w-10 h-10"  alt="" />
 
         </NavLink>: ""
-    }
+    } */}
     
     {/* <NavLink className={`text-sm block pt-5`} to="credit">Créditer un compte</NavLink> */}
 

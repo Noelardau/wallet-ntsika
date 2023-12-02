@@ -348,7 +348,7 @@ step == 3 ?
   
   <div className="flex mt-4 justify-between w-full" onClick={changeStepUp}>
  <div></div>
-  <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">Enregistrer <img src={chevron} className="w-5 h-5 inline" alt=""  />   </div>
+  <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer">Enregistrer <img src={chevron} className="w-5 h-5 inline" alt=""  />   </div>
   </div>
   
  
@@ -372,7 +372,7 @@ step == 4 ?<>
                          
       <div className="flex mt-4 justify-between" onClick={changeStepUp}>
      <div></div>
-      <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">Confirmer </div>
+      <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer">Confirmer </div>
       </div>
       
 </> : ""

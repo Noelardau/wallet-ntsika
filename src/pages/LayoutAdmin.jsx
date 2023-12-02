@@ -6,6 +6,8 @@ import { useWalletStore } from "../store";
 import { connexion } from "../services/Connexion";
 import RedirectionAdmin from "../hooks/RedirectionAdmin";
 import decoLogo from "/src/assets/logout_208px.png"
+import logoG from "/src/assets/logoG.jpg"
+
 
 
 
@@ -29,16 +31,21 @@ export const LayoutAdmin = ()=>{
     <div className="flex justify-around w-full h-20 fixed top-0 p-5 z-50 bg-white">
       
 
-    <div className="text-3xl text-[#4371BA] shadow-3xl font-bold max-md:text-lg">Wallet'ntsika (Admin) </div>
+    <div className="text-lg flex items-center  text-[#4371BA] shadow-3xl font-bold max-md:text-lg">
+      <img src={logoG} className="h-16 w-20" alt="" />
+   <div>
+   (Admin)
+   </div>
+    </div>
     <RedirectionAdmin></RedirectionAdmin>
 
     <nav className='text-sm text-[#4371BA] w-80 flex justify-around items-center '>
      {
      admin.user_id != undefined ?
       <>
-      <NavLink className="layoutTop w-28  rounded-lg p-2 h-10 text-center" to="/admin/">Home</NavLink>
-       <NavLink className="layoutTop w-28  rounded-lg p-2 h-10 text-center" to="/admin/user">Utilisateurs</NavLink>
-       <NavLink className="layoutTop w-28   rounded-lg p-2 h-10 text-center" to="/admin/cashpoint">Distributeurs</NavLink>
+      <NavLink className="layoutTop w-28  rounded-lg p-2 h-10 text-center" to="/admin/">Acceuil</NavLink>
+       <NavLink className="layoutTop w-28  rounded-lg p-2 h-10 text-center" to="/admin/user">Utilisateur</NavLink>
+       <NavLink className="layoutTop w-28   rounded-lg p-2 h-10 text-center" to="/admin/cashpoint">Agent</NavLink>
        <a href='#' className="ml-2" onClick={()=>{setIsOpen(true)}}>
        
              <img src={decoLogo} className="w-6 h-6 mt-1 ml-3" alt="" />
