@@ -23,7 +23,7 @@ export const ConfirmationModal = ({message,isOpen,onCancel,onConfirm,active})=>{
         isOpen ?
          
 <div className="h-auto absolute z-20 top-0 left-0 right-0 bottom-0 bg-black opacity-90 flex justify-center items-center">
-    <div className={`w-56 h-44 drop-shadow-2xl z-30 rounded-xl  p-5 bg-white opacity-100`}>
+    <div className={`w-56 h-auto drop-shadow-2xl z-30 rounded-xl  p-5 bg-white opacity-100`}>
                 {active!= undefined ?
             <>
                 {
@@ -33,7 +33,7 @@ export const ConfirmationModal = ({message,isOpen,onCancel,onConfirm,active})=>{
                         Voulez-vous suspendre ce compte?
                     </h1>  
                     <form className="border-b-2 border-blue-600">
-                        <textarea type="text" placeholder="Cause..." value={cause} onChange={(e)=>setCause(e.target.value)}>
+                        <textarea type="text" placeholder="Cause..." className="outline-none" value={cause} onChange={(e)=>setCause(e.target.value)}>
                             </textarea>
                     
                     </form> 

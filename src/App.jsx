@@ -29,13 +29,14 @@ import { TransactionLayoutAdmin } from './pages/TransactionLayoutAdmin.jsx'
 import { SignInUserTwo } from './pages/SignInUserTwo.jsx'
 import { SignInDistributeur } from './pages/SignInDistributeur.jsx'
 import { CompteLayoutAdmin } from './pages/CompteLayoutAdmin.jsx'
+import { ApiPage } from './pages/ApiPage.jsx'
 
 let router = createBrowserRouter([
 
-  {
-    path:"api",
-    element: <div>API form</div>
-  },
+  // {
+  //   path:"api",
+  //   element: <h1> Api form</h1>
+  // },
   {
     path:"/",
     element: <Layout></Layout>,
@@ -77,11 +78,12 @@ let router = createBrowserRouter([
           {
             path:"depot",
             element: <DepotPage></DepotPage>
-          },
-          {
-            path:"api",
-            element: <h1>API space</h1>
           }
+          // ,
+          // {
+          //   path:"api",
+          //   element: <DepotPage></DepotPage>
+          // }
         ]
       },
       {

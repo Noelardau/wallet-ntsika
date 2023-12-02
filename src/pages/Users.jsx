@@ -35,8 +35,8 @@ export const Users = ()=>{
 
     let search = (e)=>{
         e.preventDefault()
-        axios.get(`/user/get?email=${keySearch}`).then(data=>{
-            setUserList([data.data.data])
+        axios.get(`/user/find?q=${keySearch}`).then(data=>{
+            setUserList(data.data.data)
             setRet(true)
         }).catch(e=>{
             let erreur = {...e}
@@ -126,7 +126,7 @@ export const Users = ()=>{
 
 <ConfirmationModal onConfirm={confirmDelete} onCancel={cancelDelete}  isOpen={isOpenDelete} message={"Voulez-vous supprimer ce compte?"} ></ConfirmationModal>
         <form onSubmit={search} className="mt-5">
-            <input className=" bg-slate-200 p-3 border-b-2 border-b-blue-700 outline-none" type="email" placeholder="email..." value={keySearch} onChange={(e)=>setKeySearch(e.target.value)} />
+            <input className=" bg-slate-200 p-3 border-b-2 border-b-blue-700 outline-none" type="text" placeholder="email, nom...." value={keySearch} onChange={(e)=>setKeySearch(e.target.value)} />
             <button className="bg-blue-600 text-white p-2 rounded-md ml-3">search</button>
         </form>
         {ret ? <div className="hover:cursor-pointer" onClick={reload}>Afficher toute la liste</div> : ""}

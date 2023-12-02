@@ -36,7 +36,7 @@ export const HomeConnected = ()=>{
 
     return <>
         <div className="flex w-full max-lg:w-auto sm:w-{400} sm:p-2 h-96 justify-around mt-5">
-            <div className="h-full bg-slate-200 w-1/2 p-5">
+            <div className="h-full w-1/2 p-5">
                 <div className="w-full h-1/2 max-lg:w-48 flex shadow-2xl bg-white mb-5 rounded-3xl max-lg:justify-center 
                 ">
                     <div className=" w-1/3 flex items-center justify-center max-lg:hidden max-sm:hidden">
