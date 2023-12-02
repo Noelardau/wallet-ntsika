@@ -65,7 +65,7 @@ console.log(logIcon)
         
         </NavLink> */}
         <a href='#' onClick={()=>{setIsOpen(true)}} >
-            <img src={logIcon} className="w-4 h-4 mt-1" alt="" />
+            <img src={logIcon} className="w-6 h-6 mt-1 ml-3" alt="" />
             </a> </> : <> 
      
         </>

@@ -5,6 +5,7 @@ import redirection from "../hooks/Redirection";
 import { useWalletStore } from "../store";
 import { connexion } from "../services/Connexion";
 import RedirectionAdmin from "../hooks/RedirectionAdmin";
+import decoLogo from "/src/assets/logout_208px.png"
 
 
 
@@ -40,7 +41,7 @@ export const LayoutAdmin = ()=>{
        <NavLink className="layoutTop w-28   rounded-lg p-2 h-10 text-center" to="/admin/cashpoint">Distributeurs</NavLink>
        <a href='#' className="ml-2" onClick={()=>{setIsOpen(true)}}>
        
-             <img src="../src/assets/logout_208px.png" className="w-4 h-4 mt-1 inline" alt="" />
+             <img src={decoLogo} className="w-6 h-6 mt-1 ml-3" alt="" />
              </a> </>
             :
       <NavLink className="rounded-lg p-2 h-10 text-center" to="/">Se connecter en tant qu'utilisateur?</NavLink>

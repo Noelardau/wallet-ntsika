@@ -5,7 +5,11 @@ import axios from "../services/Axios"
 import {NavLink} from "react-router-dom"
 
 import { Message } from "../components/Message"
-
+import aproval from "/src/assets/approval_96px.png"
+import maleUser from "/src/assets/male_user_512px.png"
+import chevron from "/src/assets/chevron_right_96px.png"
+import emailLogo from "/src/assets/email_sign_500px.png"
+import lock from "/src/assets/lock_208px.png"
 
 
 export const SignInUserTwo = ()=>{
@@ -230,7 +234,7 @@ step == 5 ?
 <>
           
           <div className="w-20 h-20 bg-white rounded-full absolute -top-12 p-5">
-           <img src="./src/assets/approval_96px.png" className="w-10 h-10"  />
+           <img src={aproval} className="w-10 h-10"  />
        </div>
        <h1 className="text-2xl font-bold mb-5">Félicitations !</h1>
        <p>Vos informatons ont été bien enregistrer</p>
@@ -251,7 +255,7 @@ Felicitations!! votre compte a été bien crée...
 step == 1 ?
 <>
 <div className="w-20 h-20 bg-white rounded-full absolute -top-12 p-4">
-  <img src="./src/assets/male_user_512px.png" className="w-10 h-10"  />
+  <img src={maleUser} className="w-10 h-10"  />
 </div>
 
 <h1 className="text-2xl mb-5">Informations personnelles</h1>
@@ -265,7 +269,7 @@ step == 1 ?
  
   <div className="flex w-full mt-4 justify-between">
  <div></div>
-  <button  className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600" onClick={(e)=>{e.preventDefault(); changeStepUp()}}>Suivant <img src="./src/assets/chevron_right_96px.png" className="w-5 h-5 inline" alt="" />   </button>
+  <button  className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600" onClick={(e)=>{e.preventDefault(); changeStepUp()}}>Suivant <img src={chevron} className="w-5 h-5 inline" alt="" />   </button>
   </div>
   
  
@@ -284,7 +288,7 @@ step == 1 ?
 step==2 ?
 <>
 <div className="w-20 h-20 bg-white rounded-full absolute -top-12 p-4">
-                <img src="./src/assets/email_sign_500px.png" className="w-10 h-10"  />
+                <img src={emailLogo} className="w-10 h-10"  />
             </div>
             <h1 className="text-2xl mb-5">Contact</h1>
               
@@ -302,7 +306,7 @@ step==2 ?
                 
                 <div className="flex mt-4 justify-between w-full" onClick={changeStepUp} >
                <div></div>
-                <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer">Suivant <img src="./src/assets/chevron_right_96px.png" className="w-5 h-5 inline" alt=""  />   </div>
+                <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600 hover:cursor-pointer">Suivant <img src={chevron} className="w-5 h-5 inline" alt=""  />   </div>
                 </div>
                 
 
@@ -314,7 +318,7 @@ step==2 ?
 step == 3 ?
 <>
 <div className="w-20 h-20 bg-white rounded-full absolute -top-12 p-4">
-  <img src="./src/assets/lock_208px.png" className="w-10 h-10"  />
+  <img src={lock} className="w-10 h-10"  />
 </div>
 <h1 className="text-2xl mb-2">Compte </h1>
 
@@ -344,7 +348,7 @@ step == 3 ?
   
   <div className="flex mt-4 justify-between w-full" onClick={changeStepUp}>
  <div></div>
-  <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">Enregistrer <img src="./src/assets/chevron_right_96px.png" className="w-5 h-5 inline" alt=""  />   </div>
+  <div className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">Enregistrer <img src={chevron} className="w-5 h-5 inline" alt=""  />   </div>
   </div>
   
  
@@ -359,7 +363,7 @@ step == 3 ?
 step == 4 ?<>
           
 <div className="w-20 h-20 bg-white rounded-full absolute -top-12 p-4">
-      <img src="./src/assets/lock_208px.png" className="w-10 h-10"  />
+      <img src={lock} className="w-10 h-10"  />
   </div>
   <h1 className="text-2xl mb-5">Entrez le code de validation</h1>
     

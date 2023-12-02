@@ -10,6 +10,7 @@ import userIcon from "/src/assets/male_user_512px.png"
 import suivantIcon from "/src/assets/chevron_right_96px.png"
 import emailIcon from "/src/assets/email_sign_500px.png"
 import lockIcon from "/src/assets/lock_208px.png"
+import aproval from "/src/assets/approval_96px.png"
 
 
 
@@ -234,7 +235,7 @@ step == 5 ?
 <>
           
           <div className="w-20 h-20 bg-white rounded-full absolute -top-12 p-5">
-           <img src="./src/assets/approval_96px.png" className="w-10 h-10"  />
+           <img src={aproval} className="w-10 h-10"  />
        </div>
        <h1 className="text-2xl font-bold mb-5">Félicitations !!</h1>
        <p>Les informations concernant le compte distributeur ont été bien enregistré</p>

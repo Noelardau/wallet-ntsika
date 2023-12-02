@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form"
 
-
-
+import eyeSee from "/src/assets/eye_see_password.png"
+import done from "/src/assets/done_360px.png"
 
 
 
@@ -48,7 +48,7 @@ export const RetraitForm = ({onIntent})=>{
 
                     <div className="relative">
                     <input type="password" className="w-full  bg-slate-200 p-3 border-b-2 border-b-blue-700 outline-none mb-5" placeholder="Votre mot de passe" name="pass" id="pass" {...register("pass")} required />
-     <a href="#" className="absolute right-2 top-4 " onClick={seePass}><img src="../src/assets/eye_see_password.png" alt="" className="w-6 h-6" /></a>
+     <a href="#" className="absolute right-2 top-4 " onClick={seePass}><img src={eyeSee} alt="" className="w-6 h-6" /></a>
               
                 </div>
                     
@@ -60,7 +60,7 @@ export const RetraitForm = ({onIntent})=>{
                    <div>
                   
                    </div>
-                    <button href="#" className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">Effectuer le retrait <img src="../src/assets/done_360px.png" className="w-5 h-5 inline" alt="" />  </button>
+                    <button href="#" className="bg-[#4371BA] align- text-white p-2 rounded-xl w-auto hover:bg-blue-600">Effectuer le retrait <img src={done} className="w-5 h-5 inline" alt="" />  </button>
                     </div>
                     
                    

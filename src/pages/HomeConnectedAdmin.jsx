@@ -5,6 +5,11 @@ import { TransactionHisto } from "../components/TransactionHisto"
 import { useEffect, useState } from "react"
 import axios from "../services/Axios"
 
+import dollar from "/src/assets/us_dollar_circled_96px.png"
+import transactionLogo from "/src/assets/transaction_512px.png"
+import maleUser from "/src/assets/male_user_144px.png"
+
+
 export const HomeConnectedAdmin = ()=>{
 
 
@@ -34,7 +39,7 @@ export const HomeConnectedAdmin = ()=>{
             <div className="w-full h-1/2 max-lg:w-48 flex shadow-2xl bg-white mb-5 rounded-3xl max-lg:justify-center 
             ">
                 <div className=" w-1/3 flex items-center justify-center max-lg:hidden max-sm:hidden">
-                    <img src="../src/assets/us_dollar_circled_96px.png" alt="" />
+                    <img src={dollar} alt="" />
                 </div>
                 <div className=" auto max-lg:w-auto p-5 max-lg:p-6">
                         <div className="text-3xl max-lg:text-lg font-bold text-blue-500">{user.nom}</div>
@@ -49,7 +54,7 @@ export const HomeConnectedAdmin = ()=>{
             <div className="flex justify-between h-1/2">
                 <NavLink to="transaction" className="w-1/2 max-lg:w-auto sm:full max-sm:w-auto bg-white rounded-3xl mr-5 flex flex-col items-center justify-around shadow-2x p-2l">
                     <div className="logo text-3xl ">
-                    <img src="../src/assets/transaction_512px.png" className="w-16 h-16"  alt="" />
+                    <img src={transactionLogo} className="w-16 h-16"  alt="" />
 
                     </div>
                     <div className="text-xl font-bold max-lg:text-lg">Transaction</div>
@@ -58,7 +63,7 @@ export const HomeConnectedAdmin = ()=>{
                 <NavLink to="compte" className="w-1/2 max-lg:w-56 bg-white rounded-3xl mr-5 flex flex-col items-center justify-around shadow-2xl p-2">
                     <div className="logo text-3xl p-5">
                     {/* <img src="../src/assets/card_wallet_96px.png"  alt="" /> */}
-                    <img src="../src/assets/male_user_144px.png" className="h-16 w-16"  alt="" />
+                    <img src={maleUser} className="h-16 w-16"  alt="" />
                         
                     </div>
                     <div className="text-xl font-bold max-lg:text-lg">Mon compte</div>

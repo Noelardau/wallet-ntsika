@@ -1,6 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom"
 
 import { useWalletStore } from "../store"
+import listLogo from "/src/assets/list_96px.png"
+import cardLogo from "/src/assets/card_payment_96px.png"
+import requestMoney from "/src/assets/request_money_96px.png"
+import apiLogo from "/src/assets/api_512px.png"
 
 export const TransactionLayout = ()=>{
 
@@ -17,7 +21,7 @@ export const TransactionLayout = ()=>{
         
 
     <NavLink className={`text-sm block p-5 layoutRight`} to=" ">
-    <img src="../src/assets/list_96px.png" className="w-10 h-10"  alt="" />
+    <img src={listLogo} className="w-10 h-10"  alt="" />
 
     </NavLink>
     {/* ra cash point ny user  <NavLink className={`text-sm block pt-5`} to="crediter">Depot d'argent</NavLink> */}
@@ -25,22 +29,22 @@ export const TransactionLayout = ()=>{
         isCashPoint ?
         <NavLink className={`text-sm block p-5 layoutRight`} to="depot">
             
-            <img src="../src/assets/card_payment_96px.png" className="w-10 h-10"  alt="" />
+            <img src={cardLogo} className="w-10 h-10"  alt="" />
         </NavLink> :
         <NavLink className={`text-sm block p-5 layoutRight`} to="crediter">
-                <img src="../src/assets/card_payment_96px.png" className="w-10 h-10"  alt="" />
+                <img src={cardLogo} className="w-10 h-10"  alt="" />
 
         </NavLink>
     }
     {
         !isCashPoint ? <NavLink className={`text-sm block p-5 layoutRight text-center `} to="retrait">
-                <img src="../src/assets/request_money_96px.png" className="w-10 h-10"  alt="" />
+                <img src={requestMoney} className="w-10 h-10"  alt="" />
         </NavLink>: ""
     } 
     
     {
         isMarchand ? <NavLink className={`text-sm block p-5 layoutRight text-center `} to="api">
-                <img src="../src/assets/api_512px.png" className="w-10 h-10"  alt="" />
+                <img src={apiLogo} className="w-10 h-10"  alt="" />
 
         </NavLink>: ""
     }

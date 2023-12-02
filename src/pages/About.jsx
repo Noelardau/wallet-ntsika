@@ -3,7 +3,7 @@
 export const About = ()=>{
   return <>
   <div className='mx-auto shadow-2xl p-5'>
-    <p className="text-lg text-justify">
+    <p className="text-lg text-justify mb-3">
             
 Bienvenue sur Wallet'ntsika, votre plateforme de portefeuille en ligne, conçue pour simplifier vos transactions 
 financières avec facilité et sécurité. Notre mission est de fournir une solution pratique pour gérer votre argent,

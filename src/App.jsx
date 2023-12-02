@@ -31,10 +31,16 @@ import { SignInDistributeur } from './pages/SignInDistributeur.jsx'
 import { CompteLayoutAdmin } from './pages/CompteLayoutAdmin.jsx'
 
 let router = createBrowserRouter([
+
+  {
+    path:"api",
+    element: <div>API form</div>
+  },
   {
     path:"/",
     element: <Layout></Layout>,
     children:[
+     
       {
         path:"",
         element: <Home></Home>
@@ -52,6 +58,10 @@ let router = createBrowserRouter([
         path:"transaction",
         element: <TransactionLayout></TransactionLayout>,
         children:[
+          {
+            path:"api",
+            element: <div>API form</div>
+          },
           {
             path:"",
             element: <ListTransactionPage></ListTransactionPage>,

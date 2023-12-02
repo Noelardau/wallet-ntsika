@@ -1,16 +1,19 @@
 import { FormatDate } from "../services/FormatDate"
 import {NavLink} from "react-router-dom"
+import { RelativeDate } from "../services/RelativeDate"
 
 
 import retraitLogo from "/src/assets/down_208px.png"
 import depotLogo from "/src/assets/up_208px.png"
 import transfertLogo from "/src/assets/left_208px.png"
+import eyeIcon from "/src/assets/eye_see_password.png"
+
 
 export const TransactionHisto = ({type="Dépôt", amount=2000, date="20/11/2024",typeUser="user"})=>{
     return <div className="flex mb-1 justify-between w-full h-24 rounded-lg bg-white shadow-2xl p-2 border-b-2 border-blue-500 ">
 
         <div>
-            <div> {FormatDate(date,false)}</div>
+            <div className="text-sm"> {RelativeDate(new Date(date))}</div>
             <div>{type}</div>
          {
             typeUser == "user" ?
@@ -45,7 +48,7 @@ export const TransactionHisto = ({type="Dépôt", amount=2000, date="20/11/2024"
         <div className="flex flex-col justify-between  h-full items-end">
             <div>
                <NavLink to="transaction">
-               <img src="../src/assets/eye_see_password.png" className="w-5 h-5" alt=""/>
+               <img src={eyeIcon} className="w-5 h-5" alt=""/>
                </NavLink>
             </div>
             <div>
